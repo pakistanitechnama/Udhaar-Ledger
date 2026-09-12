@@ -1,0 +1,502 @@
+```html
+<style>
+.jazz-guide {
+  --green: #087f5b;
+  --green-dark: #056044;
+  --green-light: #eaf8f2;
+  --dark: #17231f;
+  --text: #37423e;
+  --muted: #6b7671;
+  --border: #dfe8e4;
+  --white: #ffffff;
+  --shadow: 0 8px 25px rgba(0, 0, 0, .07);
+
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+.jazz-guide * {
+  box-sizing: border-box;
+}
+
+.jazz-hero {
+  background: linear-gradient(135deg, #073b2c, #087f5b);
+  color: #fff;
+  padding: 35px 28px;
+  border-radius: 18px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+}
+
+.jazz-hero h1 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.2;
+}
+
+.jazz-hero p {
+  margin: 0;
+  color: #e8fff5;
+  font-size: 17px;
+}
+
+.jazz-code-box {
+  background: var(--white);
+  border: 2px solid #bfe8d7;
+  border-radius: 16px;
+  padding: 22px;
+  margin: 25px 0;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.jazz-code-label {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 7px;
+}
+
+.jazz-code {
+  display: inline-block;
+  background: var(--green-light);
+  color: var(--green-dark);
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.jazz-section {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 26px;
+  margin: 25px 0;
+  box-shadow: 0 5px 18px rgba(0,0,0,.04);
+}
+
+.jazz-section h2 {
+  color: var(--dark);
+  font-size: 27px;
+  line-height: 1.3;
+  margin: 0 0 15px;
+}
+
+.jazz-section h3 {
+  color: var(--green-dark);
+  font-size: 20px;
+  margin-top: 24px;
+}
+
+.jazz-section p {
+  margin: 0 0 15px;
+}
+
+.jazz-section a {
+  color: var(--green-dark);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.jazz-steps {
+  counter-reset: steps;
+  padding: 0;
+  margin: 20px 0;
+  list-style: none;
+}
+
+.jazz-steps li {
+  counter-increment: steps;
+  position: relative;
+  padding: 13px 15px 13px 52px;
+  margin: 10px 0;
+  background: #f7faf9;
+  border-radius: 10px;
+}
+
+.jazz-steps li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.jazz-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: 12px;
+}
+
+.jazz-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.jazz-table th {
+  background: var(--green-dark);
+  color: #fff;
+  text-align: left;
+  padding: 14px;
+  font-size: 15px;
+}
+
+.jazz-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.jazz-table tr:nth-child(even) td {
+  background: #f7faf9;
+}
+
+.jazz-table strong {
+  color: var(--green-dark);
+}
+
+.jazz-note {
+  background: #f1f8f5;
+  border-left: 5px solid var(--green);
+  padding: 16px 18px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.jazz-warning {
+  background: #fff8e8;
+  border-left: 5px solid #e3a008;
+  padding: 16px 18px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.jazz-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.jazz-checklist li {
+  position: relative;
+  padding: 9px 10px 9px 30px;
+}
+
+.jazz-checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 800;
+}
+
+.jazz-faq {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 12px 0;
+  overflow: hidden;
+}
+
+.jazz-faq summary {
+  cursor: pointer;
+  padding: 17px 18px;
+  font-weight: 700;
+  color: var(--dark);
+  background: #f8fbfa;
+}
+
+.jazz-faq summary:hover {
+  background: var(--green-light);
+}
+
+.jazz-faq p {
+  padding: 0 18px 17px;
+  margin: 0;
+}
+
+.jazz-quick {
+  background: linear-gradient(135deg, #073b2c, #087f5b);
+  color: #fff;
+  padding: 28px;
+  border-radius: 16px;
+  text-align: center;
+  margin-top: 28px;
+}
+
+.jazz-quick h2 {
+  color: #fff;
+  margin-top: 0;
+}
+
+.jazz-quick .jazz-code {
+  background: #fff;
+  color: var(--green-dark);
+}
+
+@media (max-width: 600px) {
+  .jazz-guide {
+    padding: 5px;
+  }
+
+  .jazz-hero {
+    padding: 28px 20px;
+    border-radius: 14px;
+  }
+
+  .jazz-hero h1 {
+    font-size: 29px;
+  }
+
+  .jazz-section {
+    padding: 20px 16px;
+    border-radius: 13px;
+  }
+
+  .jazz-section h2 {
+    font-size: 23px;
+  }
+
+  .jazz-code {
+    font-size: 25px;
+  }
+
+  .jazz-table {
+    min-width: 560px;
+  }
+}
+</style>
+
+<article class="jazz-guide">
+
+  <header class="jazz-hero">
+    <h1>Jazz Balance Save Code 2026 – How to Save Jazz Balance</h1>
+    <p>Learn the Jazz Balance Saver code, how to activate it, and what to check if your prepaid balance keeps decreasing.</p>
+  </header>
+
+  <section class="jazz-code-box">
+    <span class="jazz-code-label">Jazz Balance Save Code</span>
+    <div class="jazz-code">*275#</div>
+    <p>Dial this code from your Jazz prepaid SIM to access Jazz Balance Saver.</p>
+  </section>
+
+  <section class="jazz-section">
+    <h2>What Is the Jazz Balance Save Code?</h2>
+
+    <p>
+      If your Jazz prepaid balance is being deducted after your internet bundle ends,
+      <strong>Jazz Balance Saver</strong> can help protect your balance from applicable
+      out-of-bundle data usage.
+    </p>
+
+    <p>
+      The <strong>Jazz Balance Save Code</strong> is <strong>*275#</strong>.
+      Dial the code from your Jazz prepaid SIM and follow the instructions shown on your screen.
+    </p>
+
+    <div class="jazz-note">
+      <strong>Quick tip:</strong> If your main concern is mobile data consuming your prepaid balance
+      after your package has ended, start with <strong>*275#</strong>.
+    </div>
+  </section>
+
+  <section class="jazz-section">
+    <h2>How to Save Jazz Balance</h2>
+
+    <p>
+      To learn <strong>How to Save Jazz Balance</strong>, follow these simple steps:
+    </p>
+
+    <ol class="jazz-steps">
+      <li>Open your phone's dialler.</li>
+      <li>Dial <strong>*275#</strong>.</li>
+      <li>Follow the instructions displayed by Jazz.</li>
+      <li>Wait for the confirmation message.</li>
+    </ol>
+
+    <p>
+      You should also monitor your remaining internet data and package expiry to reduce
+      unexpected balance deductions.
+    </p>
+  </section>
+
+  <section class="jazz-section">
+    <h2>Jazz Balance Codes</h2>
+
+    <div class="jazz-table-wrap">
+      <table class="jazz-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Code</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Jazz Balance Saver</strong></td>
+            <td><strong>*275#</strong></td>
+            <td>Helps protect against applicable out-of-bundle data usage.</td>
+          </tr>
+          <tr>
+            <td><strong>Jazz Balance Check</strong></td>
+            <td><strong>*111#</strong></td>
+            <td>Check your prepaid balance.</td>
+          </tr>
+          <tr>
+            <td><strong>Jazz Advance</strong></td>
+            <td><strong>*112#</strong></td>
+            <td>Request an advance if you are eligible.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="jazz-section">
+    <h2>Why Is My Jazz Balance Decreasing?</h2>
+
+    <p>Your balance may decrease for several reasons:</p>
+
+    <ul class="jazz-checklist">
+      <li>Your internet package has expired.</li>
+      <li>Your included data has been used.</li>
+      <li>Background apps are consuming mobile data.</li>
+      <li>Another paid service or subscription is active.</li>
+    </ul>
+
+    <div class="jazz-warning">
+      <strong>Important:</strong> If your balance continues decreasing, check your package,
+      data usage and active services instead of assuming every deduction is caused by internet usage.
+    </div>
+  </section>
+
+  <section class="jazz-section">
+    <h2>How to Save Jazz Balance When Data Is ON</h2>
+
+    <p>
+      If you keep mobile data switched on, activate <strong>Balance Saver using *275#</strong>.
+      You can also restrict background data for apps and turn mobile data off when it is not needed.
+    </p>
+
+    <p>
+      For related information, see
+      <a href="https://pakistanitechnama.pk/balance-save-code-telenor/">
+        Balance Save Code Telenor
+      </a>.
+    </p>
+  </section>
+
+  <section class="jazz-section">
+    <h2>Is *869# the Jazz Balance Saver Code?</h2>
+
+    <p>
+      No. <strong>*869# should not automatically be treated as the Jazz Balance Saver service.</strong>
+      If you need Balance Saver, use the information for <strong>*275#</strong> and check Jazz's
+      current service details.
+    </p>
+  </section>
+
+  <section class="jazz-section">
+    <h2>Jazz Balance Save Code Not Working?</h2>
+
+    <ol class="jazz-steps">
+      <li>Confirm that you are using a Jazz prepaid SIM.</li>
+      <li>Check your network connection.</li>
+      <li>Dial <strong>*275#</strong> again.</li>
+      <li>Check Jazz's current service information.</li>
+      <li>Contact Jazz support if the issue continues.</li>
+    </ol>
+  </section>
+
+  <section class="jazz-section">
+    <h2>How to Check Jazz Balance</h2>
+
+    <p>
+      Saving your balance and checking your balance are different functions.
+      The commonly listed Jazz prepaid balance-check code is:
+    </p>
+
+    <div class="jazz-code-box">
+      <span class="jazz-code-label">Jazz Balance Check Code</span>
+      <div class="jazz-code">*111#</div>
+    </div>
+  </section>
+
+  <section class="jazz-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <details class="jazz-faq">
+      <summary>What is the Jazz Balance Save Code?</summary>
+      <p>The Jazz Balance Saver code is <strong>*275#</strong>. Dial it from a Jazz prepaid SIM and follow the instructions.</p>
+    </details>
+
+    <details class="jazz-faq">
+      <summary>How do I save my Jazz balance?</summary>
+      <p>Dial <strong>*275#</strong> to access Jazz Balance Saver. You should also monitor your internet package and data usage.</p>
+    </details>
+
+    <details class="jazz-faq">
+      <summary>How do I save Jazz balance when data is on?</summary>
+      <p>Activate Balance Saver using <strong>*275#</strong> and monitor your remaining data. Restricting background data can also help reduce unnecessary usage.</p>
+    </details>
+
+    <details class="jazz-faq">
+      <summary>What is the Jazz balance check code?</summary>
+      <p>The commonly listed Jazz prepaid balance-check code is <strong>*111#</strong>.</p>
+    </details>
+
+    <details class="jazz-faq">
+      <summary>What is the Jazz Advance code?</summary>
+      <p>The Jazz Advance code is <strong>*112#</strong>, subject to customer eligibility and applicable terms.</p>
+    </details>
+
+    <details class="jazz-faq">
+      <summary>Is *869# the Jazz Balance Saver code?</summary>
+      <p>No. Do not automatically treat *869# as the Balance Saver service. Balance Saver is associated with <strong>*275#</strong>.</p>
+    </details>
+
+    <details class="jazz-faq">
+      <summary>What should I do if my Jazz balance is still decreasing?</summary>
+      <p>Check your internet package, remaining data, background data usage and active subscriptions. If the deduction remains unexplained, contact Jazz support.</p>
+    </details>
+  </section>
+
+  <section class="jazz-quick">
+    <h2>Quick Answer</h2>
+
+    <p>
+      The <strong>Jazz Balance Save Code</strong> is:
+    </p>
+
+    <div class="jazz-code">*275#</div>
+
+    <p>
+      Dial <strong>*275#</strong> from your Jazz prepaid SIM to access Jazz Balance Saver.
+      If your balance continues to decrease, check your internet package, remaining data
+      and active services.
+    </p>
+  </section>
+
+</article>
+```
